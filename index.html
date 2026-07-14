@@ -24,7 +24,7 @@
     }
   </style>
 </head>
-<body class="bg-slate-50 text-slate-800 min-h-screen flex flex-col">
+<body class="bg-slate-50 text-slate-800 min-h-screen flex flex-col font-sans">
 
   <!-- التنبيه العائم الذكي (Toast Notification) -->
   <div id="toast" class="fixed bottom-5 left-5 z-50 p-4 rounded-xl shadow-2xl flex items-center gap-3 transition-all duration-300 transform scale-0 translate-y-10 max-w-md">
@@ -43,8 +43,8 @@
         <h3 class="font-black text-lg text-slate-900 mb-2">هل أنت متأكد من الحذف؟</h3>
         <p class="text-xs text-slate-500 mb-6 leading-relaxed">سيتم إزالة هذا الطالب وجميع كشوفات الحضور والدرجات التابعة له بشكل نهائي وآمن.</p>
         <div class="flex gap-3 justify-center">
-          <button id="cancel-delete-btn" class="px-4 py-2 text-xs bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-xl font-bold transition-all">إلغاء</button>
-          <button id="confirm-delete-btn" class="px-4 py-2 text-xs bg-rose-600 hover:bg-rose-700 text-white rounded-xl font-bold transition-all">نعم، حذف بأمان</button>
+          <button id="cancel-delete-btn" class="px-4 py-2 text-xs bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-xl font-bold transition-all font-sans">إلغاء</button>
+          <button id="confirm-delete-btn" class="px-4 py-2 text-xs bg-rose-600 hover:bg-rose-700 text-white rounded-xl font-bold transition-all font-sans">نعم، حذف بأمان</button>
         </div>
       </div>
     </div>
@@ -82,7 +82,7 @@
     <!-- الشريط الجانبي للتنقل -->
     <aside class="lg:col-span-3 bg-white p-5 rounded-3xl shadow-sm border border-slate-100 flex flex-col gap-2 h-fit">
       <div class="mb-4">
-        <p class="text-xs text-slate-400 font-bold uppercase tracking-wider mb-2">القائمة الرئيسية</p>
+        <p class="text-xs text-slate-400 font-bold uppercase tracking-wider mb-2 font-sans">القائمة الرئيسية</p>
         <div class="flex items-center gap-3 bg-indigo-50/50 p-3 rounded-2xl">
           <span class="text-2xl" id="sidebar-role-icon">👤</span>
           <div>
@@ -94,27 +94,27 @@
 
       <!-- تبويبات المعلم المباشرة -->
       <div id="teacher-menu" class="flex flex-col gap-1.5">
-        <button onclick="switchTab('dashboard')" id="tab-dashboard" class="flex items-center gap-3 w-full px-4 py-3 rounded-2xl text-right font-bold transition-all text-sm bg-indigo-600 text-white shadow-lg shadow-indigo-100">
+        <button onclick="switchTab('dashboard')" id="tab-dashboard" class="flex items-center gap-3 w-full px-4 py-3 rounded-2xl text-right font-bold transition-all text-sm bg-indigo-600 text-white shadow-lg shadow-indigo-100 font-sans">
           <span>📊</span> لوحة الإحصائيات (Dashboard)
         </button>
 
-        <button onclick="switchTab('students')" id="tab-students" class="flex items-center gap-3 w-full px-4 py-3 rounded-2xl text-right font-bold transition-all text-sm text-slate-600 hover:bg-slate-50">
+        <button onclick="switchTab('students')" id="tab-students" class="flex items-center gap-3 w-full px-4 py-3 rounded-2xl text-right font-bold transition-all text-sm text-slate-600 hover:bg-slate-50 font-sans">
           <span>👥</span> الطلاب والمجموعات
         </button>
 
-        <button onclick="switchTab('attendance')" id="tab-attendance" class="flex items-center gap-3 w-full px-4 py-3 rounded-2xl text-right font-bold transition-all text-sm text-slate-600 hover:bg-slate-50">
-          <span>📝</span> تسجيل الحضور الفوري ⚡
+        <button onclick="switchTab('attendance')" id="tab-attendance" class="flex items-center gap-3 w-full px-4 py-3 rounded-2xl text-right font-bold transition-all text-sm text-slate-600 hover:bg-slate-50 font-sans">
+          <span>📝</span> تسجيل الحضور والغياب ⚡
         </button>
 
-        <button onclick="switchTab('grades')" id="tab-grades" class="flex items-center gap-3 w-full px-4 py-3 rounded-2xl text-right font-bold transition-all text-sm text-slate-600 hover:bg-slate-50">
+        <button onclick="switchTab('grades')" id="tab-grades" class="flex items-center gap-3 w-full px-4 py-3 rounded-2xl text-right font-bold transition-all text-sm text-slate-600 hover:bg-slate-50 font-sans">
           <span>🎓</span> الدرجات والتقييمات الفورية ⚡
         </button>
 
-        <button onclick="switchTab('logs')" id="tab-logs" class="flex items-center gap-3 w-full px-4 py-3 rounded-2xl text-right font-bold transition-all text-sm text-slate-600 hover:bg-slate-50">
+        <button onclick="switchTab('logs')" id="tab-logs" class="flex items-center gap-3 w-full px-4 py-3 rounded-2xl text-right font-bold transition-all text-sm text-slate-600 hover:bg-slate-50 font-sans">
           <span>💬</span> سجلات WhatsApp
         </button>
 
-        <button onclick="switchTab('settings')" id="tab-settings" class="flex items-center gap-3 w-full px-4 py-3 rounded-2xl text-right font-bold transition-all text-sm text-slate-600 hover:bg-slate-50">
+        <button onclick="switchTab('settings')" id="tab-settings" class="flex items-center gap-3 w-full px-4 py-3 rounded-2xl text-right font-bold transition-all text-sm text-slate-600 hover:bg-slate-50 font-sans">
           <span>⚙️</span> قوالب الرسائل
         </button>
       </div>
@@ -122,28 +122,9 @@
       <div class="my-2 border-t border-slate-100"></div>
 
       <!-- بوابة ولي الأمر المستقلة دائماً -->
-      <button onclick="switchTab('parent')" id="tab-parent" class="flex items-center gap-3 w-full px-4 py-3 rounded-2xl text-right font-bold transition-all text-sm text-emerald-700 bg-emerald-50 hover:bg-emerald-100">
+      <button onclick="switchTab('parent')" id="tab-parent" class="flex items-center gap-3 w-full px-4 py-3 rounded-2xl text-right font-bold transition-all text-sm text-emerald-700 bg-emerald-50 hover:bg-emerald-100 font-sans">
         <span>👨‍👩‍👦</span> بوابة ولي الأمر 
       </button>
-
-      <!-- محاكي تسجيل الحضور السريع -->
-      <div id="quick-check-box" class="mt-4 p-4 rounded-2xl bg-indigo-50 border border-indigo-100/50">
-        <p class="text-xs font-bold text-indigo-950 mb-2">⚡ تسجيل حضور فوري سريع:</p>
-        <div class="flex gap-2">
-          <input 
-            type="text" 
-            id="quick-code-input"
-            placeholder="كود الطالب"
-            class="w-full text-xs px-3 py-2 border border-indigo-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500"
-          />
-          <button 
-            onclick="handleQuickAttendance()"
-            class="bg-indigo-600 text-white text-xs px-3 py-2 rounded-xl hover:bg-indigo-700 font-extrabold transition-all"
-          >
-            حاضر
-          </button>
-        </div>
-      </div>
     </aside>
 
     <!-- مساحة العرض الرئيسية التي تتغير ديناميكياً بـ JavaScript -->
@@ -161,7 +142,7 @@
             <input 
               type="date" 
               id="dashboard-date"
-              class="border border-slate-200 px-3 py-1.5 rounded-xl text-xs focus:ring-2 focus:ring-indigo-500 focus:outline-none font-bold text-slate-700"
+              class="border border-slate-200 px-3 py-1.5 rounded-xl text-xs focus:ring-2 focus:ring-indigo-500 focus:outline-none font-bold text-slate-700 font-sans"
             />
           </div>
         </div>
@@ -169,10 +150,10 @@
         <!-- كروت الإحصائيات -->
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           <div class="bg-white p-5 rounded-3xl shadow-sm border border-slate-100 flex items-center gap-4">
-            <div class="bg-blue-50 p-3 rounded-2xl text-2xl">👥</div>
+            <div class="bg-blue-50 p-3 rounded-2xl text-2xl animate-pulse">👥</div>
             <div>
               <p class="text-xs text-slate-400 font-medium">إجمالي الطلاب</p>
-              <p id="stat-total-students" class="text-2xl font-black text-slate-900">0</p>
+              <p id="stat-total-students" class="text-2xl font-black text-slate-900 font-sans">0</p>
             </div>
           </div>
 
@@ -180,7 +161,7 @@
             <div class="bg-violet-50 p-3 rounded-2xl text-2xl">🏫</div>
             <div>
               <p class="text-xs text-slate-400 font-medium">عدد المجموعات</p>
-              <p id="stat-total-groups" class="text-2xl font-black text-slate-900">0</p>
+              <p id="stat-total-groups" class="text-2xl font-black text-slate-900 font-sans">0</p>
             </div>
           </div>
 
@@ -188,7 +169,7 @@
             <div class="bg-emerald-50 p-3 rounded-2xl text-2xl">✅</div>
             <div>
               <p class="text-xs text-slate-400 font-medium">حضور اليوم</p>
-              <p id="stat-attendance-today" class="text-2xl font-black text-emerald-600">0 طلاب</p>
+              <p id="stat-attendance-today" class="text-2xl font-black text-emerald-600 font-sans">0 طلاب</p>
             </div>
           </div>
 
@@ -196,7 +177,7 @@
             <div class="bg-rose-50 p-3 rounded-2xl text-2xl">⚠️</div>
             <div>
               <p class="text-xs text-slate-400 font-medium">غياب اليوم</p>
-              <p id="stat-absence-today" class="text-2xl font-black text-rose-600">0 طلاب</p>
+              <p id="stat-absence-today" class="text-2xl font-black text-rose-600 font-sans">0 طلاب</p>
             </div>
           </div>
         </div>
@@ -226,21 +207,21 @@
 
         <!-- الشق المالي -->
         <div class="bg-white p-6 rounded-3xl shadow-sm border border-slate-100">
-          <h3 class="font-extrabold text-sm text-slate-900 mb-4 flex items-center gap-2">
+          <h3 class="font-extrabold text-sm text-slate-900 mb-4 flex items-center gap-2 font-sans">
             <span>💵</span> ملخص الاشتراكات والتحصيل الشهري
           </h3>
           <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
             <div class="p-4 rounded-2xl bg-indigo-50/50 border border-indigo-100/50 text-center">
               <p class="text-[11px] text-indigo-900 font-bold">إجمالي المستحق</p>
-              <p id="stat-total-sub-due" class="text-xl font-black text-indigo-950 mt-1">0 ج.م</p>
+              <p id="stat-total-sub-due" class="text-xl font-black text-indigo-950 mt-1 font-sans">0 ج.م</p>
             </div>
             <div class="p-4 rounded-2xl bg-emerald-50 border border-emerald-100/50 text-center">
               <p class="text-[11px] text-emerald-800 font-bold">المُحصّل الفعلي</p>
-              <p id="stat-total-sub-paid" class="text-xl font-black text-emerald-700 mt-1">0 ج.م</p>
+              <p id="stat-total-sub-paid" class="text-xl font-black text-emerald-700 mt-1 font-sans">0 ج.م</p>
             </div>
             <div class="p-4 rounded-2xl bg-rose-50 border border-rose-100/50 text-center">
               <p class="text-[11px] text-rose-800 font-bold">المتبقي / المعلق</p>
-              <p id="stat-total-sub-remaining" class="text-xl font-black text-rose-700 mt-1">0 ج.م</p>
+              <p id="stat-total-sub-remaining" class="text-xl font-black text-rose-700 mt-1 font-sans">0 ج.م</p>
             </div>
           </div>
         </div>
@@ -256,12 +237,12 @@
               type="text" 
               id="student-search-input"
               placeholder="ابحث باسم الطالب، كوده..."
-              class="px-4 py-2 text-xs border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500 w-full sm:w-64"
+              class="px-4 py-2 text-xs border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500 w-full sm:w-64 font-sans"
               oninput="renderStudentsTable()"
             />
             <select
               id="group-filter-select"
-              class="px-4 py-2 text-xs border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500 bg-white"
+              class="px-4 py-2 text-xs border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500 bg-white font-sans"
               onchange="renderStudentsTable()"
             >
               <option value="all">كل المجموعات</option>
@@ -271,13 +252,13 @@
           <div class="flex items-center gap-2 w-full md:w-auto justify-end">
             <button 
               onclick="toggleAddGroupForm()"
-              class="bg-indigo-50 text-indigo-700 hover:bg-indigo-100 text-xs px-3 py-2 rounded-xl font-bold flex items-center gap-1 transition-all"
+              class="bg-indigo-50 text-indigo-700 hover:bg-indigo-100 text-xs px-3 py-2 rounded-xl font-bold flex items-center gap-1 transition-all font-sans"
             >
               <span>➕</span> مجموعة جديدة
             </button>
             <button 
               onclick="toggleAddStudentForm()"
-              class="bg-indigo-600 hover:bg-indigo-700 text-white text-xs px-4 py-2 rounded-xl font-bold flex items-center gap-1 transition-all"
+              class="bg-indigo-600 hover:bg-indigo-700 text-white text-xs px-4 py-2 rounded-xl font-bold flex items-center gap-1 transition-all font-sans"
             >
               <span>👤</span> إضافة طالب جديد
             </button>
@@ -287,33 +268,33 @@
         <!-- استمارة إضافة مجموعة جديدة -->
         <div id="add-group-form-container" class="bg-white p-5 rounded-3xl shadow-md border border-indigo-100 hidden animate-slideDown">
           <div class="flex justify-between items-center mb-4">
-            <h3 class="font-extrabold text-sm text-indigo-950">إنشاء مجموعة دراسية جديدة</h3>
+            <h3 class="font-extrabold text-sm text-indigo-950 font-sans">إنشاء مجموعة دراسية جديدة</h3>
             <button onclick="toggleAddGroupForm()" class="text-slate-400 hover:text-slate-600">❌</button>
           </div>
           <form id="add-group-form" onsubmit="handleAddGroup(event)" class="grid grid-cols-1 sm:grid-cols-3 gap-4">
             <div>
-              <label class="block text-xs font-bold text-slate-600 mb-1">اسم المجموعة:</label>
+              <label class="block text-xs font-bold text-slate-600 mb-1 font-sans">اسم المجموعة:</label>
               <input 
                 type="text" id="new-group-name" required placeholder="مثال: مجموعة الأحد 4 عصراً"
-                class="w-full text-xs px-3 py-2 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                class="w-full text-xs px-3 py-2 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500 font-sans"
               />
             </div>
             <div>
-              <label class="block text-xs font-bold text-slate-600 mb-1">الصف الدراسي:</label>
+              <label class="block text-xs font-bold text-slate-600 mb-1 font-sans">الصف الدراسي:</label>
               <input 
                 type="text" id="new-group-level" required placeholder="مثال: الصف الأول الثانوي"
-                class="w-full text-xs px-3 py-2 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                class="w-full text-xs px-3 py-2 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500 font-sans"
               />
             </div>
             <div>
-              <label class="block text-xs font-bold text-slate-600 mb-1">المدرس المسؤول:</label>
+              <label class="block text-xs font-bold text-slate-600 mb-1 font-sans">المدرس المسؤول:</label>
               <input 
                 type="text" disabled value="أ. علاء الدين عيسي"
-                class="w-full text-xs px-3 py-2 border border-slate-200 rounded-xl bg-slate-50 cursor-not-allowed"
+                class="w-full text-xs px-3 py-2 border border-slate-200 rounded-xl bg-slate-50 cursor-not-allowed font-sans"
               />
             </div>
             <div class="sm:col-span-3 flex justify-end gap-2 mt-2">
-              <button type="submit" class="px-4 py-2 text-xs bg-indigo-600 text-white rounded-xl font-bold transition-all">إنشاء المجموعة</button>
+              <button type="submit" class="px-4 py-2 text-xs bg-indigo-600 text-white rounded-xl font-bold transition-all font-sans">إنشاء المجموعة</button>
             </div>
           </form>
         </div>
@@ -321,62 +302,62 @@
         <!-- استمارة إضافة طالب جديد -->
         <div id="add-student-form-container" class="bg-white p-6 rounded-3xl shadow-md border border-indigo-100 hidden animate-slideDown">
           <div class="flex justify-between items-center mb-4">
-            <h3 class="font-extrabold text-sm text-indigo-950">إضافة ملف طالب جديد</h3>
+            <h3 class="font-extrabold text-sm text-indigo-950 font-sans">إضافة ملف طالب جديد</h3>
             <button onclick="toggleAddStudentForm()" class="text-slate-400 hover:text-slate-600">❌</button>
           </div>
-          <div id="add-student-warning" class="text-sm text-rose-600 p-4 bg-rose-50 rounded-xl hidden">
+          <div id="add-student-warning" class="text-sm text-rose-600 p-4 bg-rose-50 rounded-xl hidden font-sans">
             ⚠️ يرجى إضافة مجموعة دراسية واحدة على الأقل قبل تسجيل الطلاب!
           </div>
           <form id="add-student-form" onsubmit="handleAddStudent(event)" class="grid grid-cols-1 sm:grid-cols-3 gap-4">
             <div>
-              <label class="block text-xs font-bold text-slate-600 mb-1">اسم الطالب رباعي *</label>
+              <label class="block text-xs font-bold text-slate-600 mb-1 font-sans">اسم الطالب رباعي *</label>
               <input 
                 type="text" id="new-student-name" required placeholder="أدخل الاسم بالكامل"
-                class="w-full text-xs px-3 py-2 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                class="w-full text-xs px-3 py-2 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500 font-sans"
               />
             </div>
             <div>
-              <label class="block text-xs font-bold text-slate-600 mb-1">كود الطالب (سيتم توليده تلقائياً إن ترك فارغاً)</label>
+              <label class="block text-xs font-bold text-slate-600 mb-1 font-sans">كود الطالب (سيتم توليده تلقائياً ⚡)</label>
               <input 
-                type="text" id="new-student-code" placeholder="مثال: STD101"
-                class="w-full text-xs px-3 py-2 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500 font-mono"
+                type="text" id="new-student-code" disabled
+                class="w-full text-xs px-3 py-2 border border-slate-200 rounded-xl bg-slate-50 font-mono text-indigo-600 font-bold cursor-not-allowed"
               />
             </div>
             <div>
-              <label class="block text-xs font-bold text-slate-600 mb-1">المجموعة الدراسية *</label>
+              <label class="block text-xs font-bold text-slate-600 mb-1 font-sans">المجموعة الدراسية *</label>
               <select 
                 id="new-student-group" required
-                class="w-full text-xs px-3 py-2 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500 bg-white"
+                class="w-full text-xs px-3 py-2 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500 bg-white font-sans"
               >
                 <!-- ستعبأ ديناميكياً -->
               </select>
             </div>
             <div>
-              <label class="block text-xs font-bold text-slate-600 mb-1">رقم هاتف ولي الأمر (واتساب) *</label>
+              <label class="block text-xs font-bold text-slate-600 mb-1 font-sans">رقم هاتف ولي الأمر (واتساب) *</label>
               <input 
                 type="tel" id="new-student-phone" required placeholder="مثال: 01012345678"
                 class="w-full text-xs px-3 py-2 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500 font-mono"
               />
             </div>
             <div>
-              <label class="block text-xs font-bold text-slate-600 mb-1">قيمة الاشتراك الشهري (ج.م):</label>
+              <label class="block text-xs font-bold text-slate-600 mb-1 font-sans">قيمة الاشتراك الشهري (ج.م):</label>
               <input 
                 type="number" id="new-student-sub" value="150" required
                 class="w-full text-xs px-3 py-2 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500 font-mono"
               />
             </div>
             <div>
-              <label class="block text-xs font-bold text-slate-600 mb-1">حالة سداد الشهر الحالي:</label>
+              <label class="block text-xs font-bold text-slate-600 mb-1 font-sans">حالة سداد الاشتراك:</label>
               <div class="flex gap-4 mt-2">
-                <label class="inline-flex items-center text-xs text-slate-700">
+                <label class="inline-flex items-center text-xs text-slate-700 font-sans">
                   <input type="radio" name="new-student-paid" value="true" checked class="ml-1"> تم السداد ✅
                 </label>
-                <label class="inline-flex items-center text-xs text-slate-700">
+                <label class="inline-flex items-center text-xs text-slate-700 font-sans">
                   <input type="radio" name="new-student-paid" value="false" class="ml-1"> معلّق ❌
                 </label>
               </div>
             </div>
-            <div class="sm:col-span-3 flex justify-end gap-2 mt-4">
+            <div class="sm:col-span-3 flex justify-end gap-2 mt-4 font-sans">
               <button type="submit" class="px-4 py-2 text-xs bg-indigo-600 text-white rounded-xl font-bold transition-all">حفظ ومزامنة ملف الطالب</button>
             </div>
           </form>
@@ -405,34 +386,34 @@
       </div>
 
 
-      <!-- ================= 3. تبويب تسجيل الحضور الفوري ================= -->
+      <!-- ================= 3. تبويب تسجيل الحضور والغياب الفوري ================= -->
       <div id="view-attendance" class="tab-view flex flex-col gap-6 animate-fadeIn hidden">
         <div class="bg-white p-5 rounded-3xl shadow-sm border border-slate-100 flex flex-col md:flex-row gap-4 justify-between items-center">
           <div class="flex flex-col sm:flex-row gap-4 w-full md:w-auto">
             <div class="flex-1 sm:flex-initial">
-              <label class="block text-xs font-extrabold text-slate-500 mb-1">اختر المجموعة الدراسية:</label>
+              <label class="block text-xs font-extrabold text-slate-500 mb-1 font-sans">اختر المجموعة الدراسية:</label>
               <select
                 id="attendance-group-select"
-                class="w-full sm:w-64 px-3 py-2 text-xs border border-slate-200 rounded-xl focus:ring-2 focus:ring-indigo-500 bg-white"
+                class="w-full sm:w-64 px-3 py-2 text-xs border border-slate-200 rounded-xl focus:ring-2 focus:ring-indigo-500 bg-white font-sans font-bold"
                 onchange="renderAttendanceTable()"
               >
                 <!-- سيتم ملئه برمجياً -->
               </select>
             </div>
             <div class="flex-1 sm:flex-initial">
-              <label class="block text-xs font-extrabold text-slate-500 mb-1">تاريخ الحصة:</label>
+              <label class="block text-xs font-extrabold text-slate-500 mb-1 font-sans">تاريخ الحصة:</label>
               <input
                 type="date"
                 id="attendance-date-input"
-                class="w-full px-3 py-2 text-xs border border-slate-200 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:outline-none"
+                class="w-full px-3 py-2 text-xs border border-slate-200 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:outline-none font-sans"
                 onchange="renderAttendanceTable()"
               />
             </div>
           </div>
 
-          <div class="text-left text-xs bg-emerald-50 text-emerald-800 px-4 py-2.5 rounded-2xl border border-emerald-100 flex items-center gap-2">
+          <div class="text-left text-xs bg-emerald-50 text-emerald-800 px-4 py-2.5 rounded-2xl border border-emerald-100 flex items-center gap-2 font-sans">
             <span class="w-2.5 h-2.5 bg-emerald-500 rounded-full animate-ping"></span>
-            <span class="font-extrabold">الوضع الفوري نشط:</span> بمجرد النقر على الحالة يتم الإرسال لواتساب فوراً دون تدخل!
+            <span class="font-extrabold">الوضع الفوري نشط:</span> اختاري لكل طالب إما حضور أو غياب وسيتم الإرسال فوراً!
           </div>
         </div>
 
@@ -443,8 +424,9 @@
               <thead>
                 <tr class="bg-slate-50/75 border-b border-slate-100 text-slate-500 text-xs font-bold">
                   <th class="p-4">اسم الطالب</th>
-                  <th class="p-4">رصد الحالة الفوري ⚡ (اضغط للإرسال تلقائياً)</th>
-                  <th className="p-4">الوقت المسجل</th>
+                  <th class="p-4 text-center w-28">حاضر ✅</th>
+                  <th class="p-4 text-center w-28">غائب ❌</th>
+                  <th class="p-4 text-center">الوقت المسجل</th>
                   <th class="p-4">سبب الغياب / ملاحظة سريعة</th>
                 </tr>
               </thead>
@@ -462,31 +444,31 @@
         <div class="bg-white p-5 rounded-3xl shadow-sm border border-slate-100 flex flex-col md:flex-row gap-4 justify-between items-center">
           <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 w-full md:w-auto">
             <div>
-              <label class="block text-xs font-extrabold text-slate-500 mb-1">المجموعة الدراسية:</label>
+              <label class="block text-xs font-extrabold text-slate-500 mb-1 font-sans">المجموعة الدراسية:</label>
               <select
                 id="grades-group-select"
-                class="w-full px-3 py-2 text-xs border border-slate-200 rounded-xl bg-white font-bold"
+                class="w-full px-3 py-2 text-xs border border-slate-200 rounded-xl bg-white font-bold font-sans"
                 onchange="handleGradesGroupChange()"
               >
                 <!-- سيتم ملئه برمجياً -->
               </select>
             </div>
             <div>
-              <label class="block text-xs font-extrabold text-slate-500 mb-1">اختر الامتحان:</label>
+              <label class="block text-xs font-extrabold text-slate-500 mb-1 font-sans">اختر الامتحان:</label>
               <select
                 id="grades-exam-select"
-                class="w-full px-3 py-2 text-xs border border-slate-200 rounded-xl bg-white"
+                class="w-full px-3 py-2 text-xs border border-slate-200 rounded-xl bg-white font-sans"
                 onchange="renderGradesTable()"
               >
                 <!-- سيتم ملئه برمجياً -->
               </select>
             </div>
             <div>
-              <label class="block text-xs font-extrabold text-slate-500 mb-1">تاريخ الحصة:</label>
+              <label class="block text-xs font-extrabold text-slate-500 mb-1 font-sans">تاريخ الحصة:</label>
               <input
                 type="date"
                 id="grades-date-input"
-                class="w-full px-3 py-2 text-xs border border-slate-200 rounded-xl"
+                class="w-full px-3 py-2 text-xs border border-slate-200 rounded-xl font-sans"
                 onchange="renderGradesTable()"
               />
             </div>
@@ -494,7 +476,7 @@
 
           <button 
             onclick="toggleAddExamForm()"
-            class="bg-indigo-50 text-indigo-700 hover:bg-indigo-100 text-xs px-4 py-2.5 rounded-xl font-bold border border-indigo-100 transition-all shrink-0"
+            class="bg-indigo-50 text-indigo-700 hover:bg-indigo-100 text-xs px-4 py-2.5 rounded-xl font-bold border border-indigo-100 transition-all shrink-0 font-sans"
           >
             ➕ إنشاء امتحان جديد
           </button>
@@ -503,34 +485,34 @@
         <!-- نافذة إضافة امتحان جديد للمجموعة -->
         <div id="add-exam-form-container" class="bg-white p-5 rounded-3xl shadow-md border border-indigo-100 hidden animate-slideDown">
           <div class="flex justify-between items-center mb-4">
-            <h3 class="font-extrabold text-sm text-indigo-950">إضافة امتحان دوري جديد</h3>
+            <h3 class="font-extrabold text-sm text-indigo-950 font-sans">إضافة امتحان دوري جديد</h3>
             <button onclick="toggleAddExamForm()" class="text-slate-400 hover:text-slate-600">❌</button>
           </div>
           <form id="add-exam-form" onsubmit="handleAddExam(event)" class="grid grid-cols-1 sm:grid-cols-3 gap-4">
             <div>
-              <label class="block text-xs font-bold text-slate-600 mb-1">اسم الامتحان:</label>
+              <label class="block text-xs font-bold text-slate-600 mb-1 font-sans">اسم الامتحان:</label>
               <input 
                 type="text" id="new-exam-title" required placeholder="مثال: شامل الباب الأول"
-                class="w-full text-xs px-3 py-2 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                class="w-full text-xs px-3 py-2 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500 font-sans"
               />
             </div>
             <div>
-              <label class="block text-xs font-bold text-slate-600 mb-1">الدرجة النهائية:</label>
+              <label class="block text-xs font-bold text-slate-600 mb-1 font-sans">الدرجة النهائية:</label>
               <input 
                 type="number" id="new-exam-max" required value="20"
                 class="w-full text-xs px-3 py-2 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500 font-mono"
               />
             </div>
             <div>
-              <label class="block text-xs font-bold text-slate-600 mb-1">المجموعة المستهدفة:</label>
+              <label class="block text-xs font-bold text-slate-600 mb-1 font-sans">المجموعة المستهدفة:</label>
               <select 
                 id="new-exam-group" required
-                class="w-full text-xs px-3 py-2 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500 bg-white"
+                class="w-full text-xs px-3 py-2 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500 bg-white font-sans"
               >
                 <!-- سيتم ملئه برمجياً -->
               </select>
             </div>
-            <div class="sm:col-span-3 flex justify-end gap-2 mt-2">
+            <div class="sm:col-span-3 flex justify-end gap-2 mt-2 font-sans">
               <button type="submit" class="px-4 py-2 text-xs bg-indigo-600 text-white rounded-xl font-bold transition-all">إنشاء الامتحان للجميع</button>
             </div>
           </form>
@@ -539,7 +521,7 @@
         <!-- جدول التقييمات والدرجات للرصد الفردي الفوري -->
         <div class="bg-white rounded-3xl shadow-sm border border-slate-100 overflow-hidden">
           <div class="overflow-x-auto">
-            <table class="w-full text-right border-collapse">
+            <table class="w-full text-right border-collapse font-sans">
               <thead>
                 <tr class="bg-slate-50/75 border-b border-slate-100 text-slate-500 text-xs font-bold">
                   <th class="p-4">اسم الطالب</th>
@@ -563,10 +545,10 @@
       <div id="view-logs" class="tab-view flex flex-col gap-6 animate-fadeIn hidden">
         <div class="bg-white p-5 rounded-3xl shadow-sm border border-slate-100 flex flex-col sm:flex-row justify-between items-center gap-4">
           <div>
-            <h2 class="text-lg font-extrabold text-slate-900">سجل إشعارات WhatsApp الفورية</h2>
-            <p class="text-xs text-slate-500">مراقبة وتسجيل حالة تسليم الرسائل التلقائية لولي الأمر لكل طالب</p>
+            <h2 class="text-lg font-extrabold text-slate-900 font-sans">سجل إشعارات WhatsApp الفورية</h2>
+            <p class="text-xs text-slate-500 font-sans">مراقبة وتسجيل حالة تسليم الرسائل التلقائية لولي الأمر لكل طالب</p>
           </div>
-          <div class="flex items-center gap-2">
+          <div class="flex items-center gap-2 font-sans">
             <span class="w-3 h-3 bg-emerald-500 rounded-full animate-ping"></span>
             <p class="text-xs font-bold text-slate-700">اتصال Meta Cloud API نشط</p>
           </div>
@@ -582,10 +564,10 @@
       <!-- ================= 6. قوالب الرسائل ================= -->
       <div id="view-settings" class="tab-view flex flex-col gap-6 animate-fadeIn hidden">
         <div class="bg-white p-6 rounded-3xl shadow-sm border border-slate-100">
-          <h3 class="font-extrabold text-sm text-slate-900 mb-2 flex items-center gap-2">
+          <h3 class="font-extrabold text-sm text-slate-900 mb-2 flex items-center gap-2 font-sans">
             <span>📝</span> تخصيص قوالب رسائل الـ WhatsApp
           </h3>
-          <p class="text-xs text-slate-500 mb-4">يمكنك تعديل الرسائل التلقائية التي يتم إرسالها إلى هاتف ولي الأمر فوراً. استخدم المتغيرات التالية للحصول على بيانات ديناميكية:</p>
+          <p class="text-xs text-slate-500 mb-4 font-sans">يمكنك تعديل الرسائل التلقائية التي يتم إرسالها إلى هاتف ولي الأمر فوراً. استخدم المتغيرات التالية للحصول على بيانات ديناميكية:</p>
           
           <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 mb-6 bg-slate-50 p-4 rounded-2xl border border-slate-100 font-mono text-[10px] text-indigo-900">
             <div>{{اسم الطالب}}</div>
@@ -600,28 +582,28 @@
 
           <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
-              <label class="block text-xs font-bold text-slate-700 mb-1">قالب حضور الطالب الفوري:</label>
+              <label class="block text-xs font-bold text-slate-700 mb-1 font-sans">قالب حضور الطالب الفوري:</label>
               <textarea 
                 id="template-attendance" rows="4" 
                 class="w-full text-xs p-3 border border-slate-200 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:outline-none"
               ></textarea>
             </div>
             <div>
-              <label class="block text-xs font-bold text-slate-700 mb-1">قالب غياب الطالب الفوري:</label>
+              <label class="block text-xs font-bold text-slate-700 mb-1 font-sans">قالب غياب الطالب الفوري:</label>
               <textarea 
                 id="template-absence" rows="4" 
                 class="w-full text-xs p-3 border border-slate-200 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:outline-none"
               ></textarea>
             </div>
             <div>
-              <label class="block text-xs font-bold text-slate-700 mb-1">قالب تقييم الحصة والسلوك:</label>
+              <label class="block text-xs font-bold text-slate-700 mb-1 font-sans">قالب تقييم الحصة والسلوك:</label>
               <textarea 
                 id="template-evaluation" rows="4" 
                 class="w-full text-xs p-3 border border-slate-200 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:outline-none"
               ></textarea>
             </div>
             <div>
-              <label class="block text-xs font-bold text-slate-700 mb-1">قالب نتائج الامتحانات والدرجات:</label>
+              <label class="block text-xs font-bold text-slate-700 mb-1 font-sans">قالب نتائج الامتحانات والدرجات:</label>
               <textarea 
                 id="template-exam" rows="4" 
                 class="w-full text-xs p-3 border border-slate-200 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:outline-none"
@@ -631,7 +613,7 @@
           <div class="flex justify-end mt-4">
             <button 
               onclick="saveTemplates()"
-              class="bg-indigo-600 hover:bg-indigo-700 text-white text-xs px-5 py-2 rounded-xl font-extrabold transition-all"
+              class="bg-indigo-600 hover:bg-indigo-700 text-white text-xs px-5 py-2 rounded-xl font-extrabold transition-all font-sans"
             >
               حفظ القوالب الجديدة
             </button>
@@ -643,23 +625,23 @@
       <!-- ================= 7. بوابة استعلام ولي الأمر المباشرة ================= -->
       <div id="view-parent" class="tab-view flex flex-col gap-6 animate-fadeIn hidden">
         <div class="bg-gradient-to-r from-emerald-800 to-teal-700 text-white p-6 rounded-3xl shadow-lg">
-          <h2 class="text-lg font-extrabold flex items-center gap-2">
+          <h2 class="text-lg font-extrabold flex items-center gap-2 font-sans">
             <span>👨‍👩‍👦</span> بوابة ولي الأمر الإلكترونية
           </h2>
-          <p class="text-xs text-emerald-100 mt-1 max-w-xl">
+          <p class="text-xs text-emerald-100 mt-1 max-w-xl font-sans">
             أدخل كود الطالب الخاص والمطبوع على بطاقة الحضور للتعرف فوراً على تقارير الغياب، درجات الامتحانات والتقييم الفوري للحصص.
           </p>
           <div class="mt-4 flex flex-col sm:flex-row gap-2 max-w-lg">
             <input 
               type="text" 
               id="parent-search-code-input"
-              placeholder="مثال: STD101..."
-              class="flex-1 px-4 py-2.5 rounded-xl text-xs text-slate-800 font-bold focus:outline-none"
+              placeholder="مثال: KHD-001..."
+              class="flex-1 px-4 py-2.5 rounded-xl text-xs text-slate-800 font-bold focus:outline-none font-sans"
               onkeydown="if(event.key === 'Enter') handleParentSearch()"
             />
             <button 
               onclick="handleParentSearch()"
-              class="bg-slate-900 hover:bg-slate-800 text-white text-xs px-6 py-2.5 rounded-xl font-black transition-all"
+              class="bg-slate-900 hover:bg-slate-800 text-white text-xs px-6 py-2.5 rounded-xl font-black transition-all font-sans"
             >
               استعلام فوري
             </button>
@@ -675,20 +657,20 @@
                 🧑‍🎓
               </div>
               <div>
-                <h3 id="parent-student-name" class="font-extrabold text-sm text-slate-900"></h3>
-                <p id="parent-student-code-label" class="text-xs text-slate-400 mt-0.5"></p>
-                <span id="parent-student-group-badge" class="inline-block mt-2 bg-emerald-50 text-emerald-700 text-[10px] px-2.5 py-1 rounded-full font-black"></span>
+                <h3 id="parent-student-name" class="font-extrabold text-sm text-slate-900 font-sans"></h3>
+                <p id="parent-student-code-label" class="text-xs text-slate-400 mt-0.5 font-mono"></p>
+                <span id="parent-student-group-badge" class="inline-block mt-2 bg-emerald-50 text-emerald-700 text-[10px] px-2.5 py-1 rounded-full font-black font-sans"></span>
               </div>
 
-              <div class="border-t border-slate-100 pt-3 text-right text-xs flex flex-col gap-2 text-slate-600">
+              <div class="border-t border-slate-100 pt-3 text-right text-xs flex flex-col gap-2 text-slate-600 font-sans">
                 <p>هاتف المتابعة لولي الأمر: <span id="parent-student-phone" class="font-bold text-slate-800 font-mono"></span></p>
                 <p>حالة سداد الشهر الحالي: <span id="parent-student-payment-status" class="font-bold"></span></p>
               </div>
 
               <div class="border-t border-slate-100 pt-4 flex flex-col items-center">
-                <p class="text-[10px] text-slate-400 font-bold mb-2">QR Code / بطاقة الحضور للمسح الفوري</p>
+                <p class="text-[10px] text-slate-400 font-bold mb-2 font-sans">QR Code / بطاقة الحضور للمسح الفوري</p>
                 <div class="bg-slate-100 p-2.5 rounded-xl border border-slate-200">
-                  <div class="w-32 h-32 flex flex-wrap gap-1 p-1 bg-white" id="barcode-placeholder">
+                  <div class="w-32 h-32 flex flex-wrap gap-1 p-1 bg-white animate-fadeIn" id="barcode-placeholder">
                     <!-- سيتم تعبئته برمجياً بمكعبات عشوائية لتبدو كـ QR -->
                   </div>
                 </div>
@@ -698,20 +680,20 @@
             <!-- مؤشرات الأداء والتقارير -->
             <div class="lg:col-span-8 flex flex-col gap-6">
               <!-- أرقام سريعة لولي الأمر -->
-              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 font-sans">
                 <div class="bg-white p-4 rounded-3xl border border-slate-100 text-center">
                   <p class="text-xs text-slate-400 font-medium">عدد حصص الحضور الفعلي</p>
-                  <p id="parent-stat-present" class="text-2xl font-black text-emerald-600 mt-1">0 حصص</p>
+                  <p id="parent-stat-present" class="text-2xl font-black text-emerald-600 mt-1 font-sans">0 حصص</p>
                 </div>
                 <div class="bg-white p-4 rounded-3xl border border-slate-100 text-center">
                   <p class="text-xs text-slate-400 font-medium">إجمالي الغيابات المسجلة</p>
-                  <p id="parent-stat-absence" class="text-2xl font-black text-rose-600 mt-1">0 حصص</p>
+                  <p id="parent-stat-absence" class="text-2xl font-black text-rose-600 mt-1 font-sans">0 حصص</p>
                 </div>
               </div>
 
               <!-- جدول الامتحانات والدوري -->
               <div class="bg-white p-5 rounded-3xl border border-slate-100">
-                <h4 class="font-extrabold text-xs text-slate-950 mb-3 flex items-center gap-1.5">
+                <h4 class="font-extrabold text-xs text-slate-950 mb-3 flex items-center gap-1.5 font-sans">
                   <span>🎓</span> درجات الامتحانات والاختبارات الدورية
                 </h4>
                 <div class="overflow-x-auto">
@@ -733,7 +715,7 @@
 
               <!-- تقييم المدرس وسلوك الطالب -->
               <div class="bg-white p-5 rounded-3xl border border-slate-100">
-                <h4 class="font-extrabold text-xs text-slate-950 mb-3 flex items-center gap-1.5">
+                <h4 class="font-extrabold text-xs text-slate-950 mb-3 flex items-center gap-1.5 font-sans">
                   <span>📝</span> تقرير أداء الحصص والواجب المنزلي
                 </h4>
                 <div id="parent-evaluation-container" class="flex flex-col gap-3">
@@ -744,7 +726,7 @@
           </div>
         </div>
 
-        <div id="parent-empty-result" class="bg-white p-12 rounded-3xl text-center border border-slate-100 text-slate-400">
+        <div id="parent-empty-result" class="bg-white p-12 rounded-3xl text-center border border-slate-100 text-slate-400 font-sans">
           <span class="text-5xl block mb-3">🔍</span>
           <p class="text-xs">يرجى كتابة كود الطالب المكون من حروف وأرقام بالأعلى لعرض تقاريره المفصلة.</p>
         </div>
@@ -754,7 +736,7 @@
   </div>
 
   <!-- الفوتر وسجل الحقوق المالي -->
-  <footer class="bg-white border-t border-slate-100 py-6 mt-12 text-center text-xs text-slate-400">
+  <footer class="bg-white border-t border-slate-100 py-6 mt-12 text-center text-xs text-slate-400 font-sans">
     <div class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row justify-between items-center gap-4">
       <p>© 2026 نظام الخديوي التعليمي لإدارة السناتر التعليمية والمدارس. كافة الحقوق محفوظة لـ أ. علاء الدين عيسي.</p>
       <div class="flex gap-4">
@@ -786,12 +768,14 @@
       }
     };
 
+    // التخزين المؤقت للملاحظات والحضور
+    let attendanceTemp = {};
+
     // معالجة الحذف الفردي الآمن بدون confirm
     let studentIdToDelete = null;
 
     // تهيئة البيانات عند فتح الصفحة لأول مرة
     window.onload = function() {
-      // تعيين تاريخ اليوم افتراضياً لجميع الحقول التواريخ
       const todayStr = new Date().toISOString().split('T')[0];
       document.getElementById('dashboard-date').value = todayStr;
       document.getElementById('attendance-date-input').value = todayStr;
@@ -833,23 +817,20 @@
       const tBtn = document.getElementById('role-teacher-btn');
       const pBtn = document.getElementById('role-parent-btn');
       const tMenu = document.getElementById('teacher-menu');
-      const qCheck = document.getElementById('quick-check-box');
       const rIcon = document.getElementById('sidebar-role-icon');
       const rName = document.getElementById('sidebar-role-name');
 
       if (newRole === 'مدرس') {
-        tBtn.className = "px-3 py-1.5 rounded-xl font-bold transition-all bg-indigo-600 text-white shadow";
-        pBtn.className = "px-3 py-1.5 rounded-xl font-bold transition-all text-slate-300 hover:bg-slate-700";
+        tBtn.className = "px-3 py-1.5 rounded-xl font-bold transition-all bg-indigo-600 text-white shadow font-sans";
+        pBtn.className = "px-3 py-1.5 rounded-xl font-bold transition-all text-slate-300 hover:bg-slate-700 font-sans";
         tMenu.classList.remove('hidden');
-        qCheck.classList.remove('hidden');
         rIcon.innerText = "👨‍🏫";
         rName.innerText = "أ. علاء الدين عيسي";
         switchTab('dashboard');
       } else {
-        pBtn.className = "px-3 py-1.5 rounded-xl font-bold transition-all bg-emerald-600 text-white shadow";
-        tBtn.className = "px-3 py-1.5 rounded-xl font-bold transition-all text-slate-300 hover:bg-slate-700";
+        pBtn.className = "px-3 py-1.5 rounded-xl font-bold transition-all bg-emerald-600 text-white shadow font-sans";
+        tBtn.className = "px-3 py-1.5 rounded-xl font-bold transition-all text-slate-300 hover:bg-slate-700 font-sans";
         tMenu.classList.add('hidden');
-        qCheck.classList.add('hidden');
         rIcon.innerText = "👨‍👩‍👦";
         rName.innerText = "ولي أمر طالب";
         switchTab('parent');
@@ -860,28 +841,26 @@
     function switchTab(tabId) {
       appState.activeTab = tabId;
       
-      // تحديث مظهر الأزرار الجانبية النشطة
       const allTabs = ['dashboard', 'students', 'attendance', 'grades', 'logs', 'settings', 'parent'];
       allTabs.forEach(t => {
         const btn = document.getElementById('tab-' + t);
         if (btn) {
           if (t === tabId) {
             if (t === 'parent') {
-              btn.className = "flex items-center gap-3 w-full px-4 py-3 rounded-2xl text-right font-bold transition-all text-sm bg-emerald-600 text-white shadow-lg shadow-emerald-100";
+              btn.className = "flex items-center gap-3 w-full px-4 py-3 rounded-2xl text-right font-bold transition-all text-sm bg-emerald-600 text-white shadow-lg shadow-emerald-100 font-sans";
             } else {
-              btn.className = "flex items-center gap-3 w-full px-4 py-3 rounded-2xl text-right font-bold transition-all text-sm bg-indigo-600 text-white shadow-lg shadow-indigo-100";
+              btn.className = "flex items-center gap-3 w-full px-4 py-3 rounded-2xl text-right font-bold transition-all text-sm bg-indigo-600 text-white shadow-lg shadow-indigo-100 font-sans";
             }
           } else {
             if (t === 'parent') {
-              btn.className = "flex items-center gap-3 w-full px-4 py-3 rounded-2xl text-right font-bold transition-all text-sm text-emerald-700 bg-emerald-50 hover:bg-emerald-100";
+              btn.className = "flex items-center gap-3 w-full px-4 py-3 rounded-2xl text-right font-bold transition-all text-sm text-emerald-700 bg-emerald-50 hover:bg-emerald-100 font-sans";
             } else {
-              btn.className = "flex items-center gap-3 w-full px-4 py-3 rounded-2xl text-right font-bold transition-all text-sm text-slate-600 hover:bg-slate-50";
+              btn.className = "flex items-center gap-3 w-full px-4 py-3 rounded-2xl text-right font-bold transition-all text-sm text-slate-600 hover:bg-slate-50 font-sans";
             }
           }
         }
       });
 
-      // إخفاء جميع الواجهات وإظهار الواجهة المحددة
       const views = ['dashboard', 'students', 'attendance', 'grades', 'logs', 'settings', 'parent'];
       views.forEach(v => {
         const viewEl = document.getElementById('view-' + v);
@@ -894,7 +873,6 @@
         }
       });
 
-      // معالجة وإعادة الرسم عند تبديل الشاشات لضمان تحديث البيانات
       updateAllRenderers();
     }
 
@@ -907,50 +885,37 @@
 
       msgEl.innerText = message;
       if (type === 'success') {
-        toastEl.className = "fixed bottom-5 left-5 z-50 p-4 rounded-xl shadow-2xl flex items-center gap-3 transition-all duration-300 transform bg-emerald-600 text-white scale-100 translate-y-0";
+        toastEl.className = "fixed bottom-5 left-5 z-50 p-4 rounded-xl shadow-2xl flex items-center gap-3 transition-all duration-300 transform bg-emerald-600 text-white scale-100 translate-y-0 font-sans";
         titleEl.innerText = "عملية ناجحة";
         iconEl.innerText = "✅";
       } else if (type === 'warning') {
-        toastEl.className = "fixed bottom-5 left-5 z-50 p-4 rounded-xl shadow-2xl flex items-center gap-3 transition-all duration-300 transform bg-amber-500 text-white scale-100 translate-y-0";
+        toastEl.className = "fixed bottom-5 left-5 z-50 p-4 rounded-xl shadow-2xl flex items-center gap-3 transition-all duration-300 transform bg-amber-500 text-white scale-100 translate-y-0 font-sans";
         titleEl.innerText = "تنبيه";
         iconEl.innerText = "⚠️";
       } else {
-        toastEl.className = "fixed bottom-5 left-5 z-50 p-4 rounded-xl shadow-2xl flex items-center gap-3 transition-all duration-300 transform bg-rose-600 text-white scale-100 translate-y-0";
+        toastEl.className = "fixed bottom-5 left-5 z-50 p-4 rounded-xl shadow-2xl flex items-center gap-3 transition-all duration-300 transform bg-rose-600 text-white scale-100 translate-y-0 font-sans";
         titleEl.innerText = "خطأ بالنظام";
         iconEl.innerText = "❌";
       }
 
-      // إخفاء تلقائي بعد 4 ثوانٍ
       setTimeout(() => {
         toastEl.classList.add('scale-0', 'translate-y-10');
         toastEl.classList.remove('scale-100', 'translate-y-0');
       }, 4000);
     }
 
-    // تحديث كافة الشاشات والقوائم المنسدلة بناءً على التعديلات الأخيرة للبيانات
+    // تحديث كافة الشاشات والقوائم المنسدلة
     function updateAllRenderers() {
-      // 1. تحديث الخيارات والقوائم المنسدلة للمجموعات
       updateGroupDropdowns();
-
-      // 2. تحديث لوحة التحكم الرئيسية (الإحصائيات)
       renderDashboard();
-
-      // 3. تحديث جدول الطلاب والمجموعات
       renderStudentsTable();
-
-      // 4. تحديث جدول الحضور والتحضير الفوري
       renderAttendanceTable();
-
-      // 5. تحديث جدول الدرجات والتقييمات
       renderGradesTable();
-
-      // 6. تحديث قائمة سجلات الواتساب المرسلة
       renderWhatsappLogs();
     }
 
     // تحديث منسدلات المجموعات والامتحانات ديناميكياً
     function updateGroupDropdowns() {
-      // منسدلة التصفية في الطلاب والمجموعات
       const filterSelect = document.getElementById('group-filter-select');
       const currentFilterVal = filterSelect.value;
       filterSelect.innerHTML = '<option value="all">كل المجموعات</option>';
@@ -959,7 +924,6 @@
       });
       filterSelect.value = currentFilterVal || 'all';
 
-      // منسدلة الحضور الفوري
       const attGroupSelect = document.getElementById('attendance-group-select');
       const currentAttVal = attGroupSelect.value;
       attGroupSelect.innerHTML = '';
@@ -972,7 +936,6 @@
         attGroupSelect.value = appState.groups[0].id;
       }
 
-      // منسدلة الدرجات والتقييمات
       const gradesGroupSelect = document.getElementById('grades-group-select');
       const currentGradesGroupVal = gradesGroupSelect.value;
       gradesGroupSelect.innerHTML = '';
@@ -985,14 +948,12 @@
         gradesGroupSelect.value = appState.groups[0].id;
       }
 
-      // منسدلة إنشاء الطلاب الجدد
       const newStudentGroup = document.getElementById('new-student-group');
       newStudentGroup.innerHTML = '';
       appState.groups.forEach(g => {
         newStudentGroup.innerHTML += `<option value="${g.id}">${g.name}</option>`;
       });
 
-      // منسدلة إنشاء الامتحانات
       const newExamGroup = document.getElementById('new-exam-group');
       newExamGroup.innerHTML = '';
       appState.groups.forEach(g => {
@@ -1019,6 +980,10 @@
       } else {
         warn.classList.add('hidden');
         form.classList.remove('hidden');
+        
+        // توليد كود الطالب التلقائي فورياً دون عناء
+        const nextIndex = appState.students.length + 1;
+        document.getElementById('new-student-code').value = `KHD-${String(nextIndex).padStart(3, '0')}`;
       }
     }
 
@@ -1027,7 +992,6 @@
       el.classList.toggle('hidden');
     }
 
-    // حفظ مجموعة جديدة
     function handleAddGroup(e) {
       e.preventDefault();
       const name = document.getElementById('new-group-name').value.trim();
@@ -1052,27 +1016,17 @@
       updateAllRenderers();
     }
 
-    // حفظ طالب جديد
     function handleAddStudent(e) {
       e.preventDefault();
       const name = document.getElementById('new-student-name').value.trim();
-      let code = document.getElementById('new-student-code').value.trim();
+      const code = document.getElementById('new-student-code').value.trim();
       const groupId = document.getElementById('new-student-group').value;
       const phone = document.getElementById('new-student-phone').value.trim();
       const sub = Number(document.getElementById('new-student-sub').value) || 150;
       const isPaid = document.querySelector('input[name="new-student-paid"]:checked').value === 'true';
 
       if (!name || !groupId || !phone) {
-        showCustomToast('الاسم، والمجموعة، ورقم الهاتف إلزاميين!', 'error');
-        return;
-      }
-
-      if (!code) {
-        code = 'STD' + (100 + appState.students.length + 1);
-      }
-
-      if (appState.students.some(s => s.code.toLowerCase() === code.toLowerCase())) {
-        showCustomToast('كود الطالب هذا مسجل مسبقاً لمستخدم آخر!', 'error');
+        showCustomToast('الاسم، ورقم الهاتف إلزاميين!', 'error');
         return;
       }
 
@@ -1090,11 +1044,10 @@
 
       document.getElementById('add-student-form').reset();
       toggleAddStudentForm();
-      showCustomToast(`تم إضافة الطالب "${name}" بنجاح وتخصيص كود: ${code}`, 'success');
+      showCustomToast(`تم تسجيل الطالب "${name}" بنجاح وتوليد الكود التلقائي: ${code}`, 'success');
       updateAllRenderers();
     }
 
-    // نقل طالب لمجموعة أخرى
     function moveStudent(studentId, targetGroupId) {
       appState.students = appState.students.map(s => {
         if (s.id === studentId) {
@@ -1106,7 +1059,6 @@
       updateAllRenderers();
     }
 
-    // حذف طالب (نافذة مخصصة)
     function showDeleteConfirm(studentId) {
       studentIdToDelete = studentId;
       document.getElementById('delete-modal').classList.remove('hidden');
@@ -1120,11 +1072,10 @@
 
       document.getElementById('delete-modal').classList.add('hidden');
       studentIdToDelete = null;
-      showCustomToast('تم حذف الطالب ومسح كافة سجلات تتبعه المالي والأداء بنجاح!', 'warning');
+      showCustomToast('تم حذف الطالب وتفريغ سجلاته بنجاح!', 'warning');
       updateAllRenderers();
     }
 
-    // رسم جدول الطلاب
     function renderStudentsTable() {
       const tbody = document.getElementById('students-table-body');
       const search = document.getElementById('student-search-input').value.trim();
@@ -1141,8 +1092,8 @@
       if (filtered.length === 0) {
         tbody.innerHTML = `
           <tr>
-            <td colSpan="6" class="p-8 text-center text-slate-400">
-              لا يوجد أي طلاب مطابقين، يرجى إضافة مجموعاتك وطلابك لبدء الرصد والتتبع.
+            <td colSpan="6" class="p-8 text-center text-slate-400 font-sans">
+              لا يوجد أي طلاب مطابقين، يرجى إضافة مجموعاتك وطلابك لبدء العمل.
             </td>
           </tr>
         `;
@@ -1150,10 +1101,6 @@
       }
 
       filtered.forEach(s => {
-        const groupObj = appState.groups.find(g => g.id === s.groupId);
-        const groupName = groupObj ? groupObj.name : 'غير محددة';
-
-        // خيارات نقل المجموعات
         let selectOptions = '';
         appState.groups.forEach(g => {
           selectOptions += `<option value="${g.id}" ${g.id === s.groupId ? 'selected' : ''}>${g.name}</option>`;
@@ -1161,15 +1108,15 @@
 
         tbody.innerHTML += `
           <tr class="hover:bg-slate-50/50 transition-all">
-            <td class="p-4 font-bold text-slate-800">${s.name}</td>
-            <td class="p-4 font-mono font-bold text-indigo-600 bg-slate-50 rounded-lg inline-block my-2">${s.code}</td>
+            <td class="p-4 font-bold text-slate-800 font-sans">${s.name}</td>
+            <td class="p-4"><span class="font-mono font-bold text-indigo-600 bg-slate-100 px-2.5 py-1 rounded-lg">${s.code}</span></td>
             <td class="p-4">
-              <select onchange="moveStudent('${s.id}', this.value)" class="text-[11px] bg-indigo-50/50 text-indigo-900 border-none rounded-lg p-1.5 focus:outline-none">
+              <select onchange="moveStudent('${s.id}', this.value)" class="text-[11px] bg-indigo-50/50 text-indigo-900 border-none rounded-lg p-1.5 focus:outline-none font-sans">
                 ${selectOptions}
               </select>
             </td>
             <td class="p-4 font-mono text-slate-600">${s.parentPhone}</td>
-            <td class="p-4">
+            <td class="p-4 font-sans">
               <span class="font-bold text-slate-800">${s.subscriptionValue} ج.م</span> 
               <span class="mx-1">•</span>
               <span class="px-2 py-0.5 rounded text-[10px] ${s.isPaid ? 'bg-emerald-50 text-emerald-700 font-extrabold' : 'bg-rose-50 text-rose-600 font-extrabold'}">
@@ -1177,14 +1124,14 @@
               </span>
             </td>
             <td class="p-4 text-center">
-              <button onclick="showDeleteConfirm('${s.id}')" class="p-1.5 hover:bg-rose-50 rounded-lg text-rose-500 transition-all" title="حذف الطالب">🗑️</button>
+              <button onclick="showDeleteConfirm('${s.id}')" class="p-1.5 hover:bg-rose-50 rounded-lg text-rose-500 transition-all">🗑️</button>
             </td>
           </tr>
         `;
       });
     }
 
-    // ================= منطق الحضور الفوري وتلقائي =================
+    // ================= منطق الحضور الفوري والمعدّل لسهولة الاختيار =================
 
     function renderAttendanceTable() {
       const tbody = document.getElementById('attendance-table-body');
@@ -1194,64 +1141,69 @@
       tbody.innerHTML = '';
 
       if (!selectedGroup) {
-        tbody.innerHTML = `<tr><td colSpan="4" class="p-8 text-center text-slate-400">يرجى إضافة مجموعات وطلاب أولاً للتحضير الفوري.</td></tr>`;
+        tbody.innerHTML = `<tr><td colSpan="5" class="p-8 text-center text-slate-400 font-sans">يرجى إضافة مجموعات وطلاب أولاً للتحضير الفوري.</td></tr>`;
         return;
       }
 
       const groupStudents = appState.students.filter(s => s.groupId === selectedGroup);
 
       if (groupStudents.length === 0) {
-        tbody.innerHTML = `<tr><td colSpan="4" class="p-8 text-center text-slate-400">لا يوجد طلاب مسجلين في هذه المجموعة حتى الآن.</td></tr>`;
+        tbody.innerHTML = `<tr><td colSpan="5" class="p-8 text-center text-slate-400 font-sans">لا يوجد طلاب مسجلين في هذه المجموعة حتى الآن.</td></tr>`;
         return;
       }
 
       groupStudents.forEach(student => {
-        // جلب حالة الحضور الفعلية المخزنة لهذا اليوم
         const record = appState.attendance.find(a => a.studentId === student.id && a.date === dateVal);
         const currentStatus = record ? record.status : '';
         const savedTime = record ? record.time : '-';
-
-        let buttonGroup = '';
-        const states = ['حاضر', 'غائب', 'متأخر', 'انصراف مبكر'];
-        
-        states.forEach(st => {
-          const isAct = currentStatus === st;
-          let btnClass = 'bg-slate-100 text-slate-600 hover:bg-slate-200';
-          if (isAct) {
-            if (st === 'حاضر') btnClass = 'bg-emerald-600 text-white shadow-md';
-            if (st === 'غائب') btnClass = 'bg-rose-600 text-white shadow-md';
-            if (st === 'متأخر') btnClass = 'bg-amber-500 text-white shadow-md';
-            if (st === 'انصراف مبكر') btnClass = 'bg-indigo-600 text-white shadow-md';
-          }
-          
-          buttonGroup += `
-            <button 
-              onclick="handleInstantAttendanceClick('${student.id}', '${st}')"
-              class="${btnClass} px-3 py-1.5 rounded-xl text-[10px] font-black transition-all transform active:scale-95"
-            >
-              ${st} ${isAct ? '✓' : ''}
-            </button>
-          `;
-        });
-
         const currentNote = attendanceTemp[student.id]?.note || (record ? record.note : '');
 
+        // تنسيق اختيار الحضور
+        const isPresent = currentStatus === 'حاضر';
+        const presentClass = isPresent 
+          ? 'bg-emerald-600 text-white shadow-lg shadow-emerald-100 ring-2 ring-offset-2 ring-emerald-500 scale-105'
+          : 'bg-slate-100 text-slate-400 border-slate-200 hover:bg-emerald-50 hover:text-emerald-700';
+
+        // تنسيق اختيار الغياب
+        const isAbsent = currentStatus === 'غائب';
+        const absentClass = isAbsent 
+          ? 'bg-rose-600 text-white shadow-lg shadow-rose-100 ring-2 ring-offset-2 ring-rose-500 scale-105'
+          : 'bg-slate-100 text-slate-400 border-slate-200 hover:bg-rose-50 hover:text-rose-700';
+
         tbody.innerHTML += `
-          <tr class="hover:bg-slate-50/50">
-            <td class="p-4 font-bold text-slate-800">${student.name}</td>
-            <td class="p-4">
-              <div class="flex gap-1.5">
-                ${buttonGroup}
-              </div>
+          <tr class="hover:bg-slate-50/50 transition-all">
+            <td class="p-4 font-bold text-slate-800 font-sans">${student.name}</td>
+            
+            <!-- خانة الحضور -->
+            <td class="p-4 text-center">
+              <button 
+                onclick="handleInstantAttendanceClick('${student.id}', 'حاضر')"
+                class="${presentClass} w-10 h-10 rounded-full border flex items-center justify-center font-black transition-all transform active:scale-90"
+                title="تسجيل حضور وإرسال واتساب تلقائياً"
+              >
+                ✓
+              </button>
             </td>
-            <td class="p-4 font-mono font-bold text-slate-500">${savedTime}</td>
+            
+            <!-- خانة الغياب -->
+            <td class="p-4 text-center">
+              <button 
+                onclick="handleInstantAttendanceClick('${student.id}', 'غائب')"
+                class="${absentClass} w-10 h-10 rounded-full border flex items-center justify-center font-black transition-all transform active:scale-90"
+                title="تسجيل غياب وإرسال واتساب تلقائياً"
+              >
+                ✗
+              </button>
+            </td>
+
+            <td class="p-4 font-mono font-bold text-slate-500 text-center">${savedTime}</td>
             <td class="p-4">
               <input 
                 type="text" 
                 placeholder="رصد ملاحظة أو سبب الغياب..."
                 value="${currentNote}"
                 oninput="updateAttendanceTempNote('${student.id}', this.value)"
-                class="w-full border border-slate-200 px-3 py-1.5 rounded-xl text-xs focus:ring-1 focus:ring-indigo-500 focus:outline-none"
+                class="w-full border border-slate-200 px-3 py-1.5 rounded-xl text-xs focus:ring-1 focus:ring-indigo-500 focus:outline-none font-sans"
               />
             </td>
           </tr>
@@ -1265,7 +1217,6 @@
       }
       attendanceTemp[studentId].note = val;
 
-      // تحديث السجل الفعلي المخزن إن وجد لتأمين الحفظ الفوري للملاحظات
       const dateVal = document.getElementById('attendance-date-input').value;
       const record = appState.attendance.find(a => a.studentId === studentId && a.date === dateVal);
       if (record) {
@@ -1273,7 +1224,6 @@
       }
     }
 
-    // معالجة الضغط الفوري على الحضور والإرسال التلقائي دون انتظار
     function handleInstantAttendanceClick(studentId, status) {
       const student = appState.students.find(s => s.id === studentId);
       if (!student) return;
@@ -1281,14 +1231,12 @@
       const dateVal = document.getElementById('attendance-date-input').value;
       const timeNow = new Date().toLocaleTimeString('ar-EG', { hour: '2-digit', minute: '2-digit', hour12: false });
 
-      // 1. التحديث والتحقق في الـ Temp
       if (!attendanceTemp[studentId]) {
         attendanceTemp[studentId] = { status: '', note: '', time: '16:00' };
       }
       attendanceTemp[studentId].status = status;
       attendanceTemp[studentId].time = status === 'غائب' ? '-' : timeNow;
 
-      // 2. الحفظ الفوري والمستدام بالسجل الرئيسي
       appState.attendance = appState.attendance.filter(a => !(a.studentId === student.id && a.date === dateVal));
       appState.attendance.push({
         id: 'att-' + Date.now() + '-' + student.id,
@@ -1301,7 +1249,6 @@
         savedBy: 'أ. علاء الدين عيسي'
       });
 
-      // 3. إرسال الإشعار لولي الأمر تلقائياً فوراً
       const type = status === 'غائب' ? 'absence' : 'attendance';
       const sendStatus = sendWhatsAppMock(student, type, {
         date: dateVal,
@@ -1309,9 +1256,9 @@
       });
 
       if (sendStatus === 'تم الإرسال') {
-        showCustomToast(`تم تحضير [${status}] للطالب ${student.name} وإرسال إشعار WhatsApp فوراً! 📱✅`, 'success');
+        showCustomToast(`تم تسجيل [${status}] للطالب ${student.name} وإرسال رسالة WhatsApp فوراً! 📱✅`, 'success');
       } else {
-        showCustomToast(`تم حفظ الحضور لـ ${student.name}، وفشل الإرسال التلقائي للواتساب.`, 'warning');
+        showCustomToast(`تم حفظ الحضور لـ ${student.name}، وفشل الإرسال التلقائي.`, 'warning');
       }
 
       updateAllRenderers();
@@ -1320,7 +1267,6 @@
     // ================= منطق الدرجات والتقييمات الفورية والامتحانات =================
 
     function handleGradesGroupChange() {
-      // رصد وتعبئة منسدلة الامتحانات المفلترة للمجموعة المختارة
       const selectedGroup = document.getElementById('grades-group-select').value;
       const examSelect = document.getElementById('grades-exam-select');
       examSelect.innerHTML = '';
@@ -1360,12 +1306,10 @@
       
       updateAllRenderers();
       
-      // تعيين الكود الجديد كاختيار افتراضي
       document.getElementById('grades-exam-select').value = examId;
       renderGradesTable();
     }
 
-    // رسم جدول الدرجات والتقييمات
     function renderGradesTable() {
       const tbody = document.getElementById('grades-table-body');
       const selectedGroup = document.getElementById('grades-group-select').value;
@@ -1375,35 +1319,33 @@
       tbody.innerHTML = '';
 
       if (!selectedGroup) {
-        tbody.innerHTML = `<tr><td colSpan="6" class="p-8 text-center text-slate-400">يرجى رصد الطلاب والمجموعات أولاً.</td></tr>`;
+        tbody.innerHTML = `<tr><td colSpan="6" class="p-8 text-center text-slate-400 font-sans">يرجى رصد الطلاب والمجموعات أولاً.</td></tr>`;
         return;
       }
 
       const groupStudents = appState.students.filter(s => s.groupId === selectedGroup);
 
       if (groupStudents.length === 0) {
-        tbody.innerHTML = `<tr><td colSpan="6" class="p-8 text-center text-slate-400">لا يوجد طلاب في هذه المجموعة.</td></tr>`;
+        tbody.innerHTML = `<tr><td colSpan="6" class="p-8 text-center text-slate-400 font-sans">لا يوجد طلاب في هذه المجموعة.</td></tr>`;
         return;
       }
 
       groupStudents.forEach(student => {
-        // جلب درجة الطالب المخزنة لهذا الامتحان إن وجدت
         const gradeRecord = appState.examGrades.find(g => g.studentId === student.id && g.examId === selectedExam);
         const currentGradeScore = gradeRecord ? gradeRecord.score : '';
 
-        // جلب التقييم المخزن لهذا اليوم إن وجد
         const evalRecord = appState.evaluations.find(e => e.studentId === student.id && e.date === dateVal);
         const currentScoreVal = evalRecord ? evalRecord.score : 10;
         const currentFocus = evalRecord ? evalRecord.focus : 'ممتاز';
         const currentHomework = evalRecord ? evalRecord.homework : 'كامل';
 
         tbody.innerHTML += `
-          <tr class="hover:bg-slate-50/40">
+          <tr class="hover:bg-slate-50/40 font-sans">
             <td class="p-4 font-bold text-slate-800">${student.name}</td>
             <td class="p-4">
               <input 
                 type="number" id="grade-score-${student.id}" placeholder="الدرجة" value="${currentGradeScore}"
-                class="w-16 border border-slate-200 rounded-lg p-1.5 text-center font-bold focus:ring-1 focus:ring-indigo-500 focus:outline-none"
+                class="w-16 border border-slate-200 rounded-lg p-1.5 text-center font-bold focus:ring-1 focus:ring-indigo-500 focus:outline-none font-mono"
               />
             </td>
             <td class="p-4">
@@ -1429,7 +1371,7 @@
             <td class="p-4 text-center">
               <button 
                 onclick="handleInstantSingleSave('${student.id}')"
-                class="bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold text-[10px] px-3 py-1.5 rounded-xl transition-all transform active:scale-95 inline-flex items-center gap-1"
+                class="bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold text-[10px] px-3 py-1.5 rounded-xl transition-all transform active:scale-95 inline-flex items-center gap-1 font-sans"
               >
                 حفظ وإرسال ⚡
               </button>
@@ -1439,7 +1381,6 @@
       });
     }
 
-    // الحفظ والإرسال الفوري لدرجات وتقييمات طالب واحد تلقائياً
     function handleInstantSingleSave(studentId) {
       const student = appState.students.find(s => s.id === studentId);
       if (!student) return;
@@ -1453,7 +1394,7 @@
       const focusVal = document.getElementById(`eval-focus-${studentId}`).value;
       const homeworkVal = document.getElementById(`eval-homework-${studentId}`).value;
 
-      // 1. حفظ تقييم الحصة
+      // حفظ التقييم
       appState.evaluations = appState.evaluations.filter(e => !(e.studentId === student.id && e.date === dateVal));
       appState.evaluations.push({
         id: 'ev-' + Date.now() + '-' + student.id,
@@ -1466,7 +1407,6 @@
         notes: homeworkVal === 'لم يكتب' ? 'لم يتم تسليم الواجب المطلوب للحصة.' : 'ممتاز ومتابع بشكل رائع.'
       });
 
-      // إرسال تقرير تقييم الحصة لواتساب فوراً وبدون تدخل
       sendWhatsAppMock(student, 'evaluation', {
         score: scoreNumVal,
         focus: focusVal,
@@ -1474,7 +1414,7 @@
         notes: homeworkVal === 'لم يكتب' ? 'لم يتم تسليم الواجب المطلوب' : 'أداء رائع ومشارك فعال بالحصة'
       });
 
-      // 2. إذا تم رصد درجة امتحان، نقوم بحفظها وتوليد رسالتها تلقائياً
+      // حفظ الامتحان إذا رُصدت درجة
       if (scoreInput !== '' && examObj) {
         const score = Number(scoreInput);
         const percentage = Number(((score / examObj.maxScore) * 100).toFixed(1));
@@ -1489,7 +1429,6 @@
           grade: gradeStr
         });
 
-        // إرسال نتيجة الامتحان للواتساب تلقائياً فور الحفظ
         sendWhatsAppMock(student, 'exam', {
           examTitle: examObj.title,
           score: score,
@@ -1500,49 +1439,6 @@
       }
 
       showCustomToast(`تم حفظ تقييم ودرجة الطالب ${student.name} بنجاح وإرسال تقرير الأداء الفوري عبر WhatsApp! 📱⚡`, 'success');
-      updateAllRenderers();
-    }
-
-    // ================= محاكي تسجيل الحضور السريع بـ QR =================
-
-    function handleQuickAttendance() {
-      const input = document.getElementById('quick-code-input');
-      const code = input.value.trim();
-
-      if (!code) {
-        showCustomToast('يرجى إدخال كود الطالب لإتمام العملية!', 'error');
-        return;
-      }
-
-      const student = appState.students.find(s => s.code.toLowerCase() === code.toLowerCase());
-      if (!student) {
-        showCustomToast('لم يتم العثور على طالب مسجل بهذا الكود!', 'error');
-        return;
-      }
-
-      const todayStr = document.getElementById('attendance-date-input').value;
-      const timeNow = new Date().toLocaleTimeString('ar-EG', { hour: '2-digit', minute: '2-digit', hour12: false });
-
-      // تحضير وحفظ فوري
-      appState.attendance = appState.attendance.filter(a => !(a.studentId === student.id && a.date === todayStr));
-      appState.attendance.push({
-        id: 'att-' + Date.now() + '-' + student.id,
-        studentId: student.id,
-        groupId: student.groupId,
-        date: todayStr,
-        status: 'حاضر',
-        note: 'تسجيل سريع بـ QR',
-        time: timeNow,
-        savedBy: 'أ. علاء الدين عيسي'
-      });
-
-      sendWhatsAppMock(student, 'attendance', {
-        date: todayStr,
-        time: timeNow
-      });
-
-      input.value = '';
-      showCustomToast(`مرحباً ${student.name}! تم رصد حضورك الفوري وإعلام ولي أمرك بنجاح! 📱✅`, 'success');
       updateAllRenderers();
     }
 
@@ -1578,7 +1474,6 @@
         return;
       }
 
-      // إظهار كرت الطالب والبيانات لولي الأمر
       emptyBox.classList.add('hidden');
       resultBox.classList.remove('hidden');
 
@@ -1598,7 +1493,6 @@
         payStatus.className = 'font-bold text-rose-500';
       }
 
-      // توليد باركود أو شكل QR عشوائي
       const barcodeBox = document.getElementById('barcode-placeholder');
       barcodeBox.innerHTML = '';
       for (let i = 0; i < 16; i++) {
@@ -1606,7 +1500,6 @@
         barcodeBox.innerHTML += `<div class="w-7 h-7 ${isBlack ? 'bg-slate-900' : 'bg-transparent'}"></div>`;
       }
 
-      // حساب نسب الحضور والغياب
       const studentAtts = appState.attendance.filter(a => a.studentId === student.id);
       const presents = studentAtts.filter(a => a.status === 'حاضر' || a.status === 'متأخر').length;
       const absences = studentAtts.filter(a => a.status === 'غائب').length;
@@ -1614,19 +1507,18 @@
       document.getElementById('parent-stat-present').innerText = `${presents} حصص`;
       document.getElementById('parent-stat-absence').innerText = `${absences} حصص`;
 
-      // بناء جدول درجات الامتحانات
       const examTableBody = document.getElementById('parent-exam-table-body');
       examTableBody.innerHTML = '';
 
       const studentGrades = appState.examGrades.filter(g => g.studentId === student.id);
       if (studentGrades.length === 0) {
-        examTableBody.innerHTML = `<tr><td colSpan="3" class="p-4 text-center text-slate-400">لا يوجد امتحانات دورية مرصودة له بعد.</td></tr>`;
+        examTableBody.innerHTML = `<tr><td colSpan="3" class="p-4 text-center text-slate-400 font-sans">لا يوجد امتحانات دورية مرصودة له بعد.</td></tr>`;
       } else {
         studentGrades.forEach(g => {
           const exObj = appState.exams.find(e => e.id === g.examId);
           examTableBody.innerHTML += `
-            <tr>
-              <td class="p-2 font-bold text-slate-800">${exObj ? exObj.title : 'امتحان عام'}</td>
+            <tr class="font-sans text-slate-700">
+              <td class="p-2 font-bold">${exObj ? exObj.title : 'امتحان عام'}</td>
               <td class="p-2 text-center font-mono font-bold text-indigo-600">${g.score}</td>
               <td class="p-2 text-center font-mono font-bold text-emerald-600">${g.percentage}%</td>
               <td class="p-2 text-center">
@@ -1639,17 +1531,16 @@
         });
       }
 
-      // بناء تقييم الحصص
       const evalContainer = document.getElementById('parent-evaluation-container');
       evalContainer.innerHTML = '';
 
       const studentEvals = appState.evaluations.filter(e => e.studentId === student.id);
       if (studentEvals.length === 0) {
-        evalContainer.innerHTML = `<p class="text-center text-slate-400 py-4 text-xs">لم يتم إضافة ملاحظات أداء دراسي بعد.</p>`;
+        evalContainer.innerHTML = `<p class="text-center text-slate-400 py-4 text-xs font-sans">لم يتم إضافة ملاحظات أداء دراسي بعد.</p>`;
       } else {
         studentEvals.forEach(ev => {
           evalContainer.innerHTML += `
-            <div class="p-3 rounded-2xl bg-slate-50 border border-slate-100 flex flex-col gap-2">
+            <div class="p-3 rounded-2xl bg-slate-50 border border-slate-100 flex flex-col gap-2 font-sans">
               <div class="flex justify-between items-center text-[10px]">
                 <span class="bg-indigo-50 text-indigo-700 px-2.5 py-0.5 rounded-lg font-bold">التاريخ: ${ev.date}</span>
                 <span class="font-extrabold text-slate-700">تقييم اليوم: ${ev.score}/10</span>
@@ -1674,7 +1565,7 @@
 
       if (appState.whatsappLogs.length === 0) {
         container.innerHTML = `
-          <div class="bg-white p-12 rounded-3xl border border-slate-100 text-center text-slate-400 text-xs">
+          <div class="bg-white p-12 rounded-3xl border border-slate-100 text-center text-slate-400 text-xs font-sans">
             لا توجد أي رسائل مرسلة بعد. ستظهر كشوف الحضور الحية ومحاكاة رسائل الواتس اب الفورية لولي الأمر هنا مباشرة فور تسجيلك لأي طالب!
           </div>
         `;
@@ -1685,7 +1576,7 @@
         const isSuccess = log.status === 'تم الإرسال';
         
         container.innerHTML += `
-          <div class="bg-white p-5 rounded-3xl shadow-sm border border-slate-100 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 animate-fadeIn">
+          <div class="bg-white p-5 rounded-3xl shadow-sm border border-slate-100 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 animate-fadeIn font-sans">
             <div class="flex items-start gap-3">
               <div class="bg-emerald-50 p-3 rounded-2xl text-xl text-emerald-600 shrink-0">💬</div>
               <div>
@@ -1694,7 +1585,7 @@
                   <span class="text-[10px] text-slate-400 font-mono">(${log.phone})</span>
                 </div>
                 <p class="text-xs text-slate-600 mt-1.5 whitespace-pre-line font-mono bg-slate-50 p-3 rounded-2xl border border-slate-100 leading-relaxed text-right">
-                  ${log.content}
+                  {log.content}
                 </p>
               </div>
             </div>
@@ -1714,19 +1605,16 @@
     function renderDashboard() {
       const todayStr = document.getElementById('dashboard-date').value;
       
-      // تحديث أعداد البطاقات
       document.getElementById('stat-total-students').innerText = appState.students.length;
       document.getElementById('stat-total-groups').innerText = appState.groups.length;
 
-      // حضور وغياب اليوم
       const attToday = appState.attendance.filter(a => a.date === todayStr);
-      const presents = attToday.filter(a => a.status === 'حاضر' || a.status === 'متأخر').length;
+      const presents = attToday.filter(a => a.status === 'حاضر').length;
       const absences = attToday.filter(a => a.status === 'غائب').length;
 
       document.getElementById('stat-attendance-today').innerText = `${presents} طلاب`;
       document.getElementById('stat-absence-today').innerText = `${absences} طلاب`;
 
-      // تحديث الموقف المالي
       let totalDue = 0;
       let totalPaid = 0;
       
@@ -1741,7 +1629,6 @@
       document.getElementById('stat-total-sub-paid').innerText = `${totalPaid} ج.م`;
       document.getElementById('stat-total-sub-remaining').innerText = `${totalDue - totalPaid} ج.م`;
 
-      // بناء الطلاب الأوائل باللوحة الرئيسية
       const topContainer = document.getElementById('dashboard-top-students');
       topContainer.innerHTML = '';
 
@@ -1752,12 +1639,12 @@
       }).sort((a, b) => b.avgScore - a.avgScore).slice(0, 3);
 
       if (topStuds.length === 0 || topStuds[0].avgScore === 0) {
-        topContainer.innerHTML = `<p class="text-center text-slate-400 py-4 text-xs">لم يتم رصد نتائج درجات بعد لاستخراج الأوائل.</p>`;
+        topContainer.innerHTML = `<p class="text-center text-slate-400 py-4 text-xs font-sans">لم يتم رصد نتائج درجات بعد لاستخراج الأوائل.</p>`;
       } else {
         topStuds.forEach((s, idx) => {
           const grp = appState.groups.find(g => g.id === s.groupId);
           topContainer.innerHTML += `
-            <div class="flex items-center justify-between p-3 rounded-2xl bg-gradient-to-r from-amber-50/40 to-slate-50/10 border border-amber-100/50">
+            <div class="flex items-center justify-between p-3 rounded-2xl bg-gradient-to-r from-amber-50/40 to-slate-50/10 border border-amber-100/50 font-sans">
               <div class="flex items-center gap-3">
                 <span class="w-6 h-6 flex items-center justify-center text-xs font-black rounded-full bg-amber-400 text-white">${idx + 1}</span>
                 <div>
@@ -1771,7 +1658,6 @@
         });
       }
 
-      // بناء دائرة الخطر
       const atRiskContainer = document.getElementById('dashboard-at-risk-students');
       atRiskContainer.innerHTML = '';
 
@@ -1781,17 +1667,50 @@
       }).filter(s => s.absencesCount >= 2);
 
       if (atRisk.length === 0) {
-        atRiskContainer.innerHTML = `<p class="text-center text-emerald-600 py-4 text-xs font-bold">🎉 ممتاز! لا يوجد طلاب في دائرة الخطر حالياً.</p>`;
+        atRiskContainer.innerHTML = `<p class="text-center text-emerald-600 py-4 text-xs font-bold font-sans">🎉 ممتاز! لا يوجد طلاب في دائرة الخطر حالياً.</p>`;
       } else {
         atRisk.forEach(s => {
           atRiskContainer.innerHTML += `
-            <div class="flex items-center justify-between p-3 rounded-2xl bg-rose-50/50 border border-rose-100/60">
+            <div class="flex items-center justify-between p-3 rounded-2xl bg-rose-50/50 border border-rose-100/60 font-sans">
               <span class="text-xs font-extrabold text-slate-800">${s.name}</span>
               <span class="text-xs font-black text-rose-600 font-mono">${s.absencesCount} غياب ⚠️</span>
             </div>
           `;
         });
       }
+    }
+
+    // محاكاة إرسال رسالة واتساب
+    function sendWhatsAppMock(student, messageType, data) {
+      let content = appState.templates[messageType];
+      
+      content = content.replace(/{{اسم الطالب}}/g, student.name)
+                       .replace(/{{اسم المجموعة}}/g, appState.groups.find(g => g.id === student.groupId)?.name || 'غير محدد')
+                       .replace(/{{التاريخ}}/g, data.date || new Date().toLocaleDateString('ar-EG'))
+                       .replace(/{{الوقت}}/g, data.time || new Date().toLocaleTimeString('ar-EG', {hour: '2-digit', minute:'2-digit'}))
+                       .replace(/{{الدرجة\/10}}/g, `${data.score || 10}/10`)
+                       .replace(/{{التركيز}}/g, data.focus || 'ممتاز')
+                       .replace(/{{الواجب}}/g, data.homework || 'كامل')
+                       .replace(/{{الملاحظات}}/g, data.notes || 'لا يوجد')
+                       .replace(/{{اسم الامتحان}}/g, data.examTitle || '')
+                       .replace(/{{الدرجة}}/g, data.score || '0')
+                       .replace(/{{الدرجة النهائية}}/g, data.maxScore || '20')
+                       .replace(/{{النسبة}}/g, data.percentage || '100')
+                       .replace(/{{التقدير}}/g, data.grade || 'ممتاز');
+
+      const randomStatus = Math.random() > 0.05 ? 'تم الإرسال' : 'فشل الإرسال'; 
+      
+      const newLog = {
+        id: 'msg-' + Date.now() + '-' + Math.floor(Math.random() * 1000),
+        recipient: `${student.name} (ولي الأمر)`,
+        phone: student.parentPhone,
+        content: content,
+        status: randomStatus,
+        timestamp: new Date().toISOString().replace('T', ' ').substring(0, 16)
+      };
+
+      appState.whatsappLogs = [newLog, ...appState.whatsappLogs];
+      return randomStatus;
     }
   </script>
 </body>
